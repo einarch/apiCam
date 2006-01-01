@@ -13,10 +13,11 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$actividad = $dataObject-> nombre;
 	$fechahora = $dataObject-> fechaHora;
 	$ubicacion = $dataObject-> ubicacion;
-	$descripcion =	$dataObject-> descripcion;
-	
+	$descripcion = $dataObject-> descripcion;
+	$imagen=$dataObject-> imagen;
+
 	$idAct= ''; 
-	$imagen='';
+	
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);

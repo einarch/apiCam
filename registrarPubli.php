@@ -12,9 +12,10 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$idU = $dataObject-> idUs;
 	$descripcion =	$dataObject-> descripcion;
 	$fechahora= $dataObject-> fecha;
+	$imagen=$dataObject-> imagen;
 
 	$idPub= '';	
-	$imagen='';
+
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);

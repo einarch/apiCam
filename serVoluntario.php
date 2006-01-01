@@ -14,9 +14,10 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$diasdisponibles =	$dataObject-> dias;
 	$tipoapoyo = $dataObject-> tipo;
 	$motivacion = $dataObject-> descripcion;
+	$imagen=$dataObject-> imagen;
 
 	$idVol= '';	
-	$imagen='';
+
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);

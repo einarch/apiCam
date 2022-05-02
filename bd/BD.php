@@ -1,9 +1,9 @@
 <?php
 $pdo=null;
 $host="us-cdbr-east-05.cleardb.net";
-$user="bd89816ce90eec";
-$password="39eb2bee";
-$bd="heroku_a45512c5ebee816";
+$user="b8906202f3a196";
+$password="e91cbdf0";
+$bd="heroku_0494613bdc93d34";
 
 function conectar(){
     try{
@@ -22,9 +22,9 @@ function desconectar() {
 
 function acceder(){
   $servidor = "us-cdbr-east-05.cleardb.net";
-  $usuario = "bd89816ce90eec";
-  $password = "39eb2bee";
-  $bd = "heroku_a45512c5ebee816";
+  $usuario = "b8906202f3a196";
+  $password = "e91cbdf0";
+  $bd = "heroku_0494613bdc93d34";
   //$bd = "cajaherr_datos";
   
 

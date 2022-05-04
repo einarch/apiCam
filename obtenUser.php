@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: access");
 
 if($_SERVER['REQUEST_METHOD']=='GET'){
     if(isset($_GET['id'])){
-        $query="select * from usuarios where id=".$_GET['id'];
+        $query="SELECT * FROM usuarios WHERE IDUSUARIO=".$_GET['IDUSUARIO'];
         $resultado=metodoGet($query);
         echo json_encode($resultado->fetch(PDO::FETCH_ASSOC));
     }else{

@@ -15,20 +15,20 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$pas =	$dataObject-> clave;
     
   if ($nueva_consulta = $mysqli->prepare("SELECT 
-  usuarios.nombre, usuarios.clave, usuarios.apellidos, usuarios.usuario, usuarios.idTipoUsuario, usuarios.id, tipo_usuario.etiquetaTipoUsuario, tipo_usuario.descripcionTipoUsuario 
+  usuarios.NOMBRE, usuarios.PASSWORD, usuarios.APELLIDO, usuarios.EMAIL, usuarios.IDROL, usuarios.IDUSUARIO, roles.ROL 
   FROM usuarios 
-  INNER JOIN tipo_usuario ON usuarios.idTipoUsuario = tipo_usuario.idTipoUsuario
-  WHERE usuario = ?")) {
+  INNER JOIN rol ON usuarios.IDROL = rol.IDROL
+  WHERE EMAIL = ?")) {
         $nueva_consulta->bind_param('s', $usuario);
         $nueva_consulta->execute();
         $resultado = $nueva_consulta->get_result();
         if ($resultado->num_rows == 1) {
             $datos = $resultado->fetch_assoc();
-             $encriptado_db = $datos['clave'];
+             $encriptado_db = $datos['PASSWORD'];
             if (password_verify($pas, $encriptado_db))
             {
-                $_SESSION['usuario'] = $datos['usuario'];
-                echo json_encode(array('conectado'=>true,'usuario'=>$datos['usuario'], 'nombre'=>$datos['nombre'],  'apellidos'=>$datos['apellidos'], 'id'=>$datos['id'], 'idTipoUsuario'=>$datos['idTipoUsuario'], 'etiquetaTipoUsuario'=>$datos['etiquetaTipoUsuario']  ) );
+                $_SESSION['EMAIL'] = $datos['EMAIL'];
+                echo json_encode(array('conectado'=>true,'EMAIL'=>$datos['EMAIL'], 'NOMBRE'=>$datos['NOMBRE'],  'APELLIDO'=>$datos['APELLIDO'], 'IDUSUARIO'=>$datos['IDUSUARIO'], 'IDROL'=>$datos['IDROL'], 'ROL'=>$datos['ROL']  ) );
               }
 
                else {

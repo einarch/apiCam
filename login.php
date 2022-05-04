@@ -17,7 +17,7 @@ $method = $_SERVER['REQUEST_METHOD'];
   if ($nueva_consulta = $mysqli->prepare("SELECT 
   usuarios.NOMBRE, usuarios.PASSWORD, usuarios.APELLIDO, usuarios.EMAIL, usuarios.IDROL, usuarios.IDUSUARIO, roles.ROL 
   FROM usuarios 
-  INNER JOIN rol ON usuarios.IDROL = rol.IDROL
+  INNER JOIN roles ON usuarios.IDROL = roles.IDROL
   WHERE EMAIL = ?")) {
         $nueva_consulta->bind_param('s', $usuario);
         $nueva_consulta->execute();

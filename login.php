@@ -24,7 +24,7 @@ $method = $_SERVER['REQUEST_METHOD'];
         $resultado = $nueva_consulta->get_result();
         if ($resultado->num_rows == 1) {
             $datos = $resultado->fetch_assoc();
-             $encriptado_db = $datos['EMAIL'];
+             $encriptado_db = $datos['PASSWORD'];
             if (password_verify($pas, $encriptado_db))
             {
                 $_SESSION['EMAIL'] = $datos['EMAIL'];

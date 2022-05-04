@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         $resultado=metodoGet($query);
         echo json_encode($resultado->fetch(PDO::FETCH_ASSOC));
     }else{
-        $query="select * from usuarios";
+        $query="SELECT * FROM usuarios";
         $resultado=metodoGet($query);
         echo json_encode($resultado->fetchAll()); 
     }

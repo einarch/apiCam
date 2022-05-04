@@ -10,7 +10,9 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
         $resultado=metodoGet($query);
         echo json_encode($resultado->fetch(PDO::FETCH_ASSOC));
     }else{
-        $query="SELECT * FROM actividades ORDER BY IDACT DESC";
+        $query="SELECT usuarios.NOMBRE, usuarios.APELLIDO, actividades.ACTIVIDAD, actividades.FECHAHORAA, actividades.UBICACIONA, actividades.DESCRIPCIONA 
+        FROM usuarios 
+        INNER JOIN actividades ON usuarios.IDUSUARIO = actividades.IDUSUARIO ORDER BY IDACT DESC;";
         $resultado=metodoGet($query);
         echo json_encode($resultado->fetchAll()); 
     }

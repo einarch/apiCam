@@ -1,9 +1,9 @@
 <?php
 $pdo=null;
-$host="us-cdbr-east-05.cleardb.net";
-$user="b8906202f3a196";
-$password="e91cbdf0";
-$bd="heroku_0494613bdc93d34";
+$host="bw7puuwzqhjsk8npasa3-mysql.services.clever-cloud.com";
+$user="uelajbin1aaej3i4";
+$password="8nc160YzpZ1TkpC78tcF";
+$bd="bw7puuwzqhjsk8npasa3";
 
 function conectar(){
     try{
@@ -21,10 +21,10 @@ function desconectar() {
 }
 
 function acceder(){
-  $servidor = "us-cdbr-east-05.cleardb.net";
-  $usuario = "b8906202f3a196";
-  $password = "e91cbdf0";
-  $bd = "heroku_0494613bdc93d34";
+  $servidor = "bw7puuwzqhjsk8npasa3-mysql.services.clever-cloud.com";
+  $usuario = "uelajbin1aaej3i4";
+  $password = "8nc160YzpZ1TkpC78tcF";
+  $bd = "bw7puuwzqhjsk8npasa3";
   //$bd = "cajaherr_datos";
   
 

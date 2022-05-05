@@ -1,9 +1,9 @@
 <?php
 $pdo=null;
-$host="w3epjhex7h2ccjxx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-$user="qqy4k8v6lkv36ril";
-$password="baedlupmf60vv242";
-$bd="lw3jh4s991ndoj5q";
+$host="bmlx3df4ma7r1yh4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+$user="r437tl8qedcbzcd1";
+$password="p803swh86g7fpsxh";
+$bd="u3xy3m9pnoua2hbn";
 
 function conectar(){
     try{
@@ -21,10 +21,10 @@ function desconectar() {
 }
 
 function acceder(){
-  $servidor = "w3epjhex7h2ccjxx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-  $usuario = "qqy4k8v6lkv36ril";
-  $password = "baedlupmf60vv242";
-  $bd = "lw3jh4s991ndoj5q";
+  $servidor = "bmlx3df4ma7r1yh4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+  $usuario = "r437tl8qedcbzcd1";
+  $password = "p803swh86g7fpsxh";
+  $bd = "u3xy3m9pnoua2hbn";
   //$bd = "cajaherr_datos";
   
 

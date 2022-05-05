@@ -1,9 +1,9 @@
 <?php
 $pdo=null;
-$host="bmlx3df4ma7r1yh4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-$user="r437tl8qedcbzcd1";
-$password="p803swh86g7fpsxh";
-$bd="u3xy3m9pnoua2hbn";
+$host="us-cdbr-east-05.cleardb.net";
+$user="b8906202f3a196";
+$password="e91cbdf0";
+$bd="heroku_0494613bdc93d34";
 
 function conectar(){
     try{
@@ -21,10 +21,10 @@ function desconectar() {
 }
 
 function acceder(){
-  $servidor = "bmlx3df4ma7r1yh4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-  $usuario = "r437tl8qedcbzcd1";
-  $password = "p803swh86g7fpsxh";
-  $bd = "u3xy3m9pnoua2hbn";
+  $servidor = "us-cdbr-east-05.cleardb.net";
+  $usuario = "b8906202f3a196";
+  $password = "e91cbdf0";
+  $bd = "heroku_0494613bdc93d34";
   //$bd = "cajaherr_datos";
   
 

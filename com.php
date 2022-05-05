@@ -20,7 +20,18 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
     exit();
 }
 
-
+if($_POST['METHOD']=='POST'){
+    unset($_POST['METHOD']);
+    $decripcionp=$_POST['DESCRIPCIONP'];
+    //$lanzamiento=$_POST['lanzamiento'];
+    //$desarrollador=$_POST['desarrollador'];
+    $query="INSERT INTO publicaciones(DESCRIPCIONP) values ('$descripcionp')";
+    $queryAutoIncrement="SELECT MAX(IDPUB) AS IDPUB FROM publicaciones";
+    $resultado=metodoPost($query, $queryAutoIncrement);
+    echo json_encode($resultado);
+    header("HTTP/1.1 200 OK");
+    exit();
+}
 
 header("HTTP/1.1 400 Bad Request");
 

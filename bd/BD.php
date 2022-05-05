@@ -54,4 +54,19 @@ function metodoGet($query){
     }
 }
 
+function metodoPost($query, $queryAutoIncrement){
+    try{
+        conectar();
+        $sentencia=$GLOBALS['pdo']->prepare($query);
+        $sentencia->execute();
+        $idAutoIncrement=metodoGet($queryAutoIncrement)->fetch(PDO::FETCH_ASSOC);
+        $resultado=array_merge($idAutoIncrement, $_POST);
+        $sentencia->closeCursor();
+        desconectar();
+        return $resultado;
+    }catch(Exception $e){
+        die("Error: ".$e);
+    }
+}
+
 ?>

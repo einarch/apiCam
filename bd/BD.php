@@ -21,10 +21,10 @@ function desconectar() {
 }
 
 function acceder(){
-  $servidor = "bw7puuwzqhjsk8npasa3-mysql.services.clever-cloud.com";
-  $usuario = "uelajbin1aaej3i4";
-  $password = "8nc160YzpZ1TkpC78tcF";
-  $bd = "bw7puuwzqhjsk8npasa3";
+    $servidor = "bw7puuwzqhjsk8npasa3-mysql.services.clever-cloud.com";
+    $usuario = "uelajbin1aaej3i4";
+    $password = "8nc160YzpZ1TkpC78tcF";
+    $bd = "bw7puuwzqhjsk8npasa3";
   //$bd = "cajaherr_datos";
   
 

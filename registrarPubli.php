@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header("Content-Type: text/html; charset=utf-8");
 $method = $_SERVER['REQUEST_METHOD'];
 	include 'bd/BD.php';
-    $conn = acceder();
+    $mysqli = acceder();
 
 	$JSONData = file_get_contents("php://input");
 	$dataObject = json_decode($JSONData);       
@@ -15,21 +15,25 @@ $method = $_SERVER['REQUEST_METHOD'];
 	
 	
 	$fechahora= $dataObject-> fecha;
-	$idPub= 0;	
+	$idPub= '';	
 
 	
 
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if ($mysqli->connect_error) {
+  die("Connection failed: " . $mysqli->connect_error);
 }
-$sql = "INSERT INTO publicaciones (IDPUB, IDUSUARIO, FECHAHORAP, DESCRIPCIONP) VALUES ('$idPub', '$idU', '$fechahora', '$descripcion')";
+$stmt = $mysqli->prepare("INSERT INTO publicaciones (IDPUB, IDUSUARIO, FECHAHORAP, DESCRIPCIONP) VALUES (?, ?, ?, ?)");
+$stmt->bind_param('iiss', $idPub, $idU, $fechahora, $descripcion);
+$stmt->execute();
+$resultado = $stmt->get_result();
 
-if ($conn->query($sql) === TRUE) {
+if ($stmt->affected_rows > 0) {
 	echo json_encode(array('guardado'=>true, 'mensaje' => 'La publicacion se guardo con exito.'));
 } else {
-	echo json_encode(array('conectado'=>false, 'error' => "Error: " . $sql . "<br>" . $conn->error, 'mensaje' => 'La publicacion no se pudo guardar.')); 
+	echo json_encode(array('guardado'=>false, 'mensaje' => 'La publicacion no se pudo guardar.')); 
 }
+$stmt->close();
 
-$conn->close();
+$mysqli->close();
 	
 ?>

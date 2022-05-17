@@ -22,15 +22,14 @@ $method = $_SERVER['REQUEST_METHOD'];
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);
 }
-$stmt = $mysqli->prepare("INSERT INTO publicaciones (IDPUB, IDUSUARIO, FECHAHORAP, DESCRIPCIONP) VALUES (?, ?, ?, ?)");
+$stmt = $mysqli->prepare("INSERT INTO publicaciones VALUES (?, ?, ?, ?)");
 $stmt->bind_param('iiss', $idPub, $idU, $fechahora, $descripcion);
 $stmt->execute();
-$resultado = $stmt->get_result();
 
 if ($stmt->affected_rows > 0) {
-	echo json_encode(array('guardado'=>true, 'mensaje' => 'La publicacion se guardo con exito.'));
+	echo json_encode(array('Guardado'=>true, 'Mensaje' => 'La publicacion se guardo con exito.'));
 } else {
-	echo json_encode(array('guardado'=>false, 'mensaje' => 'La publicacion no se pudo guardar.')); 
+	echo json_encode(array('Guardado'=>false, 'Mensaje' => 'La publicacion no se pudo guardar.')); 
 }
 $stmt->close();
 

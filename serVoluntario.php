@@ -12,8 +12,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$idU = $dataObject-> userID;
 	$telefono =	$dataObject-> telefono;
 	$diasdisponibles =	$dataObject-> dias;
-	$tipoapoyo =	$dataObject-> tipo;
-	$motivacion =	$dataObject-> descripcion;
+	$tipoapoyo = $dataObject-> tipo;
+	$motivacion = $dataObject-> descripcion;
 
 	$idVol= '';	
 

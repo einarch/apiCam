@@ -25,9 +25,9 @@ $stmt->bind_param('iissss', $idAct, $idU, $actividad, $fechahora, $ubicacion, $d
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {
-	echo json_encode(array('Guardado'=>true, 'Mensaje' => 'La publicacion se guardo con exito.'));
+	echo json_encode(array('Guardado'=>true, 'Mensaje' => 'Actividad guardada con exito.'));
 } else {
-	echo json_encode(array('Guardado'=>false, 'Mensaje' => 'La publicacion no se pudo guardar.')); 
+	echo json_encode(array('Guardado'=>false, 'Mensaje' => 'No se pudo guardar la actividad.')); 
 }
 $stmt->close();
 

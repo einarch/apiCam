@@ -9,23 +9,25 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$JSONData = file_get_contents("php://input");
 	$dataObject = json_decode($JSONData);       
 
-	$idU = $dataObject-> idUs;
-	$descripcion =	$dataObject-> descripcion;
-	$fechahora= $dataObject-> fecha;
+	$idU = $dataObject-> userID;
+	$telefono =	$dataObject-> telefono;
+	$diasdisponibles =	$dataObject-> dias;
+	$tipoapoyo =	$dataObject-> tipo;
+	$motivacion =	$dataObject-> descripcion;
 
-	$idPub= '';	
+	$idVol= '';	
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);
 }
-$stmt = $mysqli->prepare("INSERT INTO publicaciones VALUES (?, ?, ?, ?)");
-$stmt->bind_param('iiss', $idPub, $idU, $fechahora, $descripcion);
+$stmt = $mysqli->prepare("INSERT INTO voluntarios VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param('iissss', $idVol, $idU, $telefono, $diasdisponibles, $tipoapoyo, $motivacion);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {
-	echo json_encode(array('Guardado'=>true, 'Mensaje' => 'La publicacion se guardo con exito.'));
+	echo json_encode(array('Guardado'=>true, 'Mensaje' => 'Voluntario registrado con exito.'));
 } else {
-	echo json_encode(array('Guardado'=>false, 'Mensaje' => 'La publicacion no se pudo guardar.')); 
+	echo json_encode(array('Guardado'=>false, 'Mensaje' => 'No se pudo registrar al voluntario.')); 
 }
 $stmt->close();
 

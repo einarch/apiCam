@@ -11,13 +11,12 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 	    
 	$idU = $dataObject-> userID;
+	$actividad = $dataObject-> nombre;
+	$fechahora = $dataObject-> fechaHora;
+	$ubicacion = $dataObject-> ubicacion;
 	$descripcion =	$dataObject-> descripcion;
 	
-	$fechahora = $dataObject-> fechaHora;
 	$idAct= '';	
-
-	$actividad = $dataObject-> nombre;
-	$ubicacion = $dataObject-> ubicacion;
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);

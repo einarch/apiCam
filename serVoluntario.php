@@ -8,20 +8,18 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 	$JSONData = file_get_contents("php://input");
 	$dataObject = json_decode($JSONData);       
-	    
-	$idU = $dataObject-> userID;
-	$actividad = $dataObject-> nombre;
-	$fechahora = $dataObject-> fechaHora;
-	$ubicacion = $dataObject-> ubicacion;
+
+	$idU = $dataObject-> idUs;
 	$descripcion =	$dataObject-> descripcion;
-	
-	$idAct= ''; 
+	$fechahora= $dataObject-> fecha;
+
+	$idPub= '';	
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);
 }
-$stmt = $mysqli->prepare("INSERT INTO actividades VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param('iissss', $idAct, $idU, $actividad, $fechahora, $ubicacion, $descripcion);
+$stmt = $mysqli->prepare("INSERT INTO publicaciones VALUES (?, ?, ?, ?)");
+$stmt->bind_param('iiss', $idPub, $idU, $fechahora, $descripcion);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {

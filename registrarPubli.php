@@ -9,15 +9,11 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$JSONData = file_get_contents("php://input");
 	$dataObject = json_decode($JSONData);       
 
-	    
 	$idU = $dataObject-> idUs;
 	$descripcion =	$dataObject-> descripcion;
-	
-	
 	$fechahora= $dataObject-> fecha;
-	$idPub= '';	
 
-	
+	$idPub= '';	
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);

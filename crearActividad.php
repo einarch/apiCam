@@ -9,6 +9,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$JSONData = file_get_contents("php://input");
 	$dataObject = json_decode($JSONData);       
 
+	$idAct= '';
 	    
 	$idU = $dataObject-> userID;
 	$actividad = $dataObject-> nombre;
@@ -16,7 +17,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$ubicacion = $dataObject-> ubicacion;
 	$descripcion =	$dataObject-> descripcion;
 	
-	$idAct= '';	
+	//$idAct= '';	
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);

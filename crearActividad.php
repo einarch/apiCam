@@ -10,13 +10,13 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$dataObject = json_decode($JSONData);       
 
 	    
-	$idU = $dataObject-> idUs;
+	$idU = $dataObject-> userID;
 	$descripcion =	$dataObject-> descripcion;
 	
-	$fechahora = $dataObject-> fecha;
+	$fechahora = $dataObject-> fechaHora;
 	$idAct= '';	
 
-	$actividad = $dataObject-> actividad;
+	$actividad = $dataObject-> nombre;
 	$ubicacion = $dataObject-> ubicacion;
 
 if ($mysqli->connect_error) {

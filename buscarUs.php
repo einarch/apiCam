@@ -23,10 +23,10 @@ $method = $_SERVER['REQUEST_METHOD'];
           $resultado = $buscar->get_result();
           if ($resultado->num_rows == 1) {
               $datos = $resultado->fetch_assoc();
-                  echo json_encode(array('Existe'=>true, 'Mensaje' => 'Ya existe una cuenta registrada con el EMAIL introducido.', 'CONECTADO'=>false, 'IDUSUARIO'=>$datos['IDUSUARIO'], 'IDROL'=>$datos['IDROL'], 'ROL'=>$datos['ROL'], 'EMAIL'=>$datos['EMAIL'], 'NOMBRE'=>$datos['NOMBRE'], 'APELLIDOS'=>$datos['APELLIDO'], 'FECHA NACIMIENTO'=>$datos['FECHANAC'], 'EDAD'=>$datos['EDAD'], 'CIUDAD'=>$datos['CIUDAD'] ) );
+                  echo json_encode(array('Existe'=>true, 'Mensaje' => 'Ya existe una cuenta registrada con el EMAIL introducido.', 'CONECTADO'=>false, 'IDUSUARIO'=>$datos['IDUSUARIO'], 'IDROL'=>$datos['IDROL'], 'ROL'=>$datos['ROL'], 'EMAIL'=>$datos['EMAIL'], 'NOMBRE'=>$datos['NOMBRE'], 'APELLIDOS'=>$datos['APELLIDO'], 'FECHANACIMIENTO'=>$datos['FECHANAC'], 'EDAD'=>$datos['EDAD'], 'CIUDAD'=>$datos['CIUDAD'] ) );
                 }
                  else {
-                      echo json_encode(array('Existe'=>false, 'Mensaje' => 'El EMAIL introducido no pertenece a una cuenta.')); 
+                      echo json_encode(array('Existe'=>false, 'Mensaje' => 'Los datos introducidos no pertenecen a una cuenta.')); 
                   }
                       
           $buscar->close();

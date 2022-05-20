@@ -14,12 +14,13 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$fechahora= $dataObject-> fecha;
 
 	$idPub= '';	
+	$imagen='';
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);
 }
-$stmt = $mysqli->prepare("INSERT INTO publicaciones VALUES (?, ?, ?, ?)");
-$stmt->bind_param('iiss', $idPub, $idU, $fechahora, $descripcion);
+$stmt = $mysqli->prepare("INSERT INTO publicaciones VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param('iisss', $idPub, $idU, $fechahora, $descripcion, $imagen);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {

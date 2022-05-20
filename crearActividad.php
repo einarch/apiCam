@@ -16,12 +16,13 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$descripcion =	$dataObject-> descripcion;
 	
 	$idAct= ''; 
+	$imagen='';
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);
 }
-$stmt = $mysqli->prepare("INSERT INTO actividades VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param('iissss', $idAct, $idU, $actividad, $fechahora, $ubicacion, $descripcion);
+$stmt = $mysqli->prepare("INSERT INTO actividades VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param('iisssss', $idAct, $idU, $actividad, $fechahora, $ubicacion, $descripcion, $imagen);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {

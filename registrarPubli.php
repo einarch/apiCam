@@ -15,13 +15,13 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$imagen=$dataObject-> imagen;
 
 	$idPub= '';	
-
+	$contadorLike=0;
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);
 }
-$stmt = $mysqli->prepare("INSERT INTO publicaciones VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param('iisss', $idPub, $idU, $fechahora, $descripcion, $imagen);
+$stmt = $mysqli->prepare("INSERT INTO publicaciones VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param('iisss', $idPub, $idU, $fechahora, $descripcion, $imagen, $contadorLike);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {

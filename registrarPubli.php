@@ -21,7 +21,7 @@ if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);
 }
 $stmt = $mysqli->prepare("INSERT INTO publicaciones VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param('iisss', $idPub, $idU, $fechahora, $descripcion, $imagen, $contadorLike);
+$stmt->bind_param('iisssi', $idPub, $idU, $fechahora, $descripcion, $imagen, $contadorLike);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {

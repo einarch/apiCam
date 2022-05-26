@@ -11,7 +11,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 	    
 	$idPublicacion= $dataObject-> idPublicacion;
-    $meGusta =	$dataObject-> mGusta;
+    $meGusta =	$dataObject-> meGusta;
 	
 
     if ($mysqli->connect_error) {
@@ -20,7 +20,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
     $stmt = $mysqli->prepare("UPDATE publicaciones SET CONTADORLIKE=? WHERE IDPUB=?");
   
-    $stmt->bind_param ('ii', $idPublicacion, $meGusta);
+    $stmt->bind_param ('ii', $meGusta, $idPublicacion);
     $stmt->execute();
                   
     if ($stmt->affected_rows > 0) {

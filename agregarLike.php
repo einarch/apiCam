@@ -9,14 +9,16 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$JSONData = file_get_contents("php://input");
 	$dataObject = json_decode($JSONData);       
 
-	$idUusuario = $dataObject-> idUsuario;
-	$idPublicacion= $dataObject-> idPublicacion;	
+	$idUsuario = $dataObject-> idUsuario;
+	$idPublicacion= $dataObject-> idPublicacion;
+	
+	$idLike= '';
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);
 }
-$stmt = $mysqli->prepare("INSERT INTO likes VALUES (?, ?)");
-$stmt->bind_param('ii', $idPublicacion, $idUusuario);
+$stmt = $mysqli->prepare("INSERT INTO likes VALUES (?, ?, ?)");
+$stmt->bind_param('iii', $idLike, $idPublicacion, $idUsuario);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {

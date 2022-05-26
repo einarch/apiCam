@@ -6,7 +6,7 @@ header('Access-Control-Allow-Origin: *');
 
 if($_SERVER['REQUEST_METHOD']=='GET'){
     if(isset($_GET['IDPUB'])){
-        $query="SELECT usuarios.NOMBRE, usuarios.APELLIDO, publicaciones.FECHAHORAP, publicaciones.DESCRIPCIONP, publicaciones.IMAGENP 
+        $query="SELECT publicaciones.IDPUB, usuarios.NOMBRE, usuarios.APELLIDO, publicaciones.FECHAHORAP, publicaciones.DESCRIPCIONP, publicaciones.IMAGENP, publicaciones.CONTADORLIKE 
         FROM usuarios 
         INNER JOIN publicaciones ON usuarios.IDUSUARIO = publicaciones.IDUSUARIO WHERE IDPUB=".$_GET['IDPUB'];
         $resultado=metodoGet($query);

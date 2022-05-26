@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: access");
 
 if($_SERVER['REQUEST_METHOD']=='GET'){
 
-    $query="SELECT publicaciones.IDPUB, usuarios.NOMBRE, usuarios.APELLIDO, publicaciones.FECHAHORAP, publicaciones.DESCRIPCIONP, publicaciones.IMAGENP 
+    $query="SELECT publicaciones.IDPUB, usuarios.NOMBRE, usuarios.APELLIDO, publicaciones.FECHAHORAP, publicaciones.DESCRIPCIONP, publicaciones.IMAGENP, publicaciones.CONTADORLIKE 
     FROM usuarios 
     INNER JOIN publicaciones ON usuarios.IDUSUARIO = publicaciones.IDUSUARIO WHERE IDPUB=".$_GET['IDPUB'];
     $resultado=metodoGet($query);

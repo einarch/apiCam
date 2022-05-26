@@ -9,8 +9,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$JSONData = file_get_contents("php://input");
 	$dataObject = json_decode($JSONData);       
 
-	$idUsuario = $dataObject-> idUsuario;
 	$idPublicacion= $dataObject-> idPublicacion;
+	$idUsuario = $dataObject-> idUsuario;
 	
 	$idLike= '';
 

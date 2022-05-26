@@ -10,8 +10,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 	$dataObject = json_decode($JSONData);        
 
 	    
-	$meGusta =	$dataObject-> mGusta;
 	$idPublicacion= $dataObject-> idPublicacion;
+    $meGusta =	$dataObject-> mGusta;
 	
 
     if ($mysqli->connect_error) {
@@ -20,7 +20,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
     $stmt = $mysqli->prepare("UPDATE publicaciones SET CONTADORLIKE=? WHERE IDPUB=?");
   
-    $stmt->bind_param ('ii',$meGusta, $idPublicacion);
+    $stmt->bind_param ('ii', $idPublicacion, $meGusta);
     $stmt->execute();
                   
     if ($stmt->affected_rows > 0) {

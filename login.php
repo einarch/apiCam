@@ -33,11 +33,11 @@ $method = $_SERVER['REQUEST_METHOD'];
 
                else {
 
-                 echo json_encode(array('conectado'=>false, 'error' => 'La clave es incorrecta, vuelva a intentarlo.'));
+                 echo json_encode(array('conectado'=>false, 'Existe'=>true, 'error' => 'La clave es incorrecta, vuelva a intentarlo.'));
                     }
         }
         else {
-              echo json_encode(array('conectado'=>false, 'error' => 'El usuario no existe.'));
+              echo json_encode(array('conectado'=>false, 'Existe'=>false, 'error' => 'El usuario no existe.'));
         }
         $nueva_consulta->close();
       }

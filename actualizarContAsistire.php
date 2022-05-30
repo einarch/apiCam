@@ -12,15 +12,16 @@ $method = $_SERVER['REQUEST_METHOD'];
 	    
 	$idActividad= $dataObject-> idActividad;
     $asistire =	$dataObject-> asistire;
+    $existe = $dataObject-> existe;
 	
 
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);
       }
 
-    $stmt = $mysqli->prepare("UPDATE actividades SET CONTADORASISTIRE=? WHERE IDACT=?");
+    $stmt = $mysqli->prepare("UPDATE actividades SET CONTADORASISTIRE=?, EXISTE=? WHERE IDACT=?");
   
-    $stmt->bind_param ('ii', $asistire, $idActividad);
+    $stmt->bind_param ('isi', $asistire, $existe, $idActividad);
     $stmt->execute();
                   
     if ($stmt->affected_rows > 0) {

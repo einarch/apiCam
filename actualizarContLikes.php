@@ -12,15 +12,15 @@ $method = $_SERVER['REQUEST_METHOD'];
 	    
 	$idPublicacion= $dataObject-> idPublicacion;
     $meGusta =	$dataObject-> meGusta;
-	
+	$existe = $dataObject-> existe;
 
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);
       }
 
-    $stmt = $mysqli->prepare("UPDATE publicaciones SET CONTADORLIKE=? WHERE IDPUB=?");
+    $stmt = $mysqli->prepare("UPDATE publicaciones SET CONTADORLIKE=?, EXISTE=? WHERE IDPUB=?");
   
-    $stmt->bind_param ('ii', $meGusta, $idPublicacion);
+    $stmt->bind_param ('isi', $meGusta, $existe, $idPublicacion);
     $stmt->execute();
                   
     if ($stmt->affected_rows > 0) {
